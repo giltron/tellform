@@ -3,12 +3,15 @@
  * Module dependencies.
  */
 
-require('dotenv').config({path: './.env'});
+
 
 if(!process.env.NODE_ENV){
     process.env.NODE_ENV = 'development';
 }
 
+if (process.env.NODE_ENV === 'development') {
+   require('dotenv').config({path: './.env'});
+}
 
 require('events').EventEmitter.prototype._maxListeners = 0;
 
